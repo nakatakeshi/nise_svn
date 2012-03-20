@@ -1,0 +1,20 @@
+#!/usr/bin/env node
+var sprintf = require('sprintf').sprintf,
+    exec    = require('child_process').exec,
+    path    = require('path');
+
+var argStr = buildArgvStr();
+path.exists('./.git', function (exists) {
+    var cmd = exists ? sprintf('%s %s', 'git',argStr) : sprintf('%s %s', '/usr/bin/svn',argStr);
+    exec(cmd, function(err, stdout, stderr){
+      console.log(stdout);
+      console.log(stderr);
+    });
+});
+
+function buildArgvStr () {
+    var argv = process.argv;
+    argv.shift();
+    argv.shift();
+    return argv.join(' ');
+}
