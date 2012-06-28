@@ -3,7 +3,6 @@
     "version": "0.0.1",
     "dependencies": {
         "sprintf"       : ">= 0.0.1",
-        "child_process" : ">= 0.0.1",
         "path"          : ">= 0.0.1"
     }
 }
